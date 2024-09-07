@@ -27,4 +27,7 @@ class CustomColors {
   static const Color dividerColor = Color(0xFFBDBDBD);
   static const Color shadowColor = Color(0xFFE0E0E0);
   static const Color black = Color(0xFF000000);
+  static const Color bottomNavBarColor = Color(0xFF1E1E1E);
+  static const Color activeItemColor = Color(0xFF6200EE);
+  static const Color inactiveItemColor = Color(0xFFB0B0B0);
 }
