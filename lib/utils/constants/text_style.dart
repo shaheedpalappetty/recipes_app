@@ -30,5 +30,6 @@ class CustomTextStyle {
   static const TextStyle vegetarianTextStyle = TextStyle(
     fontSize: 14.0,
   );
-
+  static const TextStyle errorTitle =
+      TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.red);
 }

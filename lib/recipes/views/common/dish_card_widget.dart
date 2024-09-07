@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import '../constants/custom_colors.dart';
-import '../constants/text_style.dart';
+import 'package:recipes_app/recipes/model/recipe.dart';
+import 'package:recipes_app/recipes/view_models/home_view_model.dart';
+import '../../../utils/constants/custom_colors.dart';
+import '../../../utils/constants/text_style.dart';
 
 class DishCardWidget extends StatelessWidget {
   final bool isVertical;
+  final Recipe recipe;
+  final RecipesViewModel viewModel;
 
   const DishCardWidget({
     super.key,
     required this.isVertical,
+    required this.recipe,
+    required this.viewModel
   });
 
   @override
@@ -25,7 +31,7 @@ class DishCardWidget extends StatelessWidget {
             Stack(
               children: [
                 Image.network(
-                  "https://nosh-assignment.s3.ap-south-1.amazonaws.com/paneer-tikka.jpg",
+                  recipe.imageUrl,
                   width: isVertical ? double.maxFinite : width / 1.8,
                   height: isVertical ? height / 3.2 : height / 5.3,
                   fit: BoxFit.cover,
@@ -34,18 +40,22 @@ class DishCardWidget extends StatelessWidget {
                   bottom: 4,
                   right: 4,
                   child: GestureDetector(
-                    onTap: () {},
-                    child: const Icon(
+                    onTap: () {
+                      viewModel.addToFavouriteList(recipe);
+                    },
+                    child: Icon(
                       Icons.favorite,
-                      color: CustomColors.favoriteIconColor,
+                      color: viewModel.isFavourite(recipe)
+                          ? CustomColors.favoriteIconColor
+                          : CustomColors.disabledFavoriteIconColor,
                     ),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 8.0),
-            const Text(
-              'Jeera Rice',
+            Text(
+              recipe.dishName,
               style: CustomTextStyle.dishCardTitle,
             ),
             const SizedBox(height: 4.0),
