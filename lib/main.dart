@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/views/home_view.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:recipes_app/app/app.locator.dart';
+import 'package:recipes_app/app/app.router.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 void main() {
-  runApp(const RecipesApp());
+  setupLocator().then((value) => runApp(const RecipesApp()));
 }
 
 class RecipesApp extends StatelessWidget {
@@ -10,13 +13,12 @@ class RecipesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Recipes App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const RecipesScreen(),
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
+      builder: FToastBuilder(),
     );
   }
 }
