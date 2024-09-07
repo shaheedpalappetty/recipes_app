@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recipes_app/utils/constants/custom_colors.dart';
 import 'package:recipes_app/utils/constants/text_style.dart';
 import 'package:recipes_app/utils/widgets/dish_card_widget.dart';
+import 'package:recipes_app/utils/widgets/searchbar.dart';
 import 'package:recipes_app/views/favourites_view.dart';
 
 class RecipesScreen extends StatelessWidget {
@@ -65,15 +66,7 @@ class RecipesScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: "Search for recipes...",
-                          prefixIcon: Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                          ),
-                        ),
-                      ),
+                      SearchBarWidget(),
                       Column(
                         children: [
                           Text(
