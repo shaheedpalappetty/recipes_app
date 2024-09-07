@@ -16,7 +16,7 @@ class CustomColors {
 
   // Accent Colors
   static const Color accentColor = Color(0xFFFF5722);
-  static const Color errorColor = Color(0xFFB00020);
+  static const Color errorColor = Color(0xFFCD304D);
 
   // Custom Colors for specific components
   static const Color appBarColor = Color(0xFF6200EE);
@@ -26,4 +26,5 @@ class CustomColors {
   // Other colors
   static const Color dividerColor = Color(0xFFBDBDBD);
   static const Color shadowColor = Color(0xFFE0E0E0);
+  static const Color black = Color(0xFF000000);
 }
