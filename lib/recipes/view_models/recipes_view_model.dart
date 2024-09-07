@@ -1,5 +1,3 @@
-
-
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:recipes_app/app/app.locator.dart';
 import 'package:recipes_app/app/app.router.dart';

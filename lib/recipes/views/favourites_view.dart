@@ -17,6 +17,7 @@ class FavouriteDishes extends StatelessWidget {
             appBar: AppBar(
               title: const Text("Favorite Dishes"),
               backgroundColor: CustomColors.appBarColor,
+              centerTitle: true,
             ),
             body: viewModel.favouriteList().isEmpty
                 ? const Center(

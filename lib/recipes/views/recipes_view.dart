@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipes_app/recipes/view_models/home_view_model.dart';
+import 'package:recipes_app/recipes/view_models/recipes_view_model.dart';
 import 'package:recipes_app/utils/constants/custom_colors.dart';
 import 'package:recipes_app/utils/constants/text_style.dart';
 import 'package:recipes_app/recipes/views/common/dish_card_widget.dart';
