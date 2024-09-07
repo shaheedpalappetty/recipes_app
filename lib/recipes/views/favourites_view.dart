@@ -27,10 +27,15 @@ class FavouriteDishes extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return ListTile(
                         contentPadding: const EdgeInsets.all(16.0),
-                        leading: CircleAvatar(
-                          radius: 25,
-                          child: Image.network(
-                              viewModel.favouriteList()[index].imageUrl),
+                        leading: ClipOval(
+                          child: SizedBox(
+                            width: 50,
+                            height: 50,
+                            child: Image.network(
+                              viewModel.favouriteList()[index].imageUrl,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                         trailing: Icon(Icons.favorite,
                             color: viewModel.isFavourite(
