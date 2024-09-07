@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:recipes_app/recipes/model/recipe.dart';
-import 'package:recipes_app/recipes/view_models/home_view_model.dart';
+import 'package:recipes_app/recipes/view_models/recipes_view_model.dart';
 import '../../../utils/constants/custom_colors.dart';
 import '../../../utils/constants/text_style.dart';
 
