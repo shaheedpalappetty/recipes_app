@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:recipes_app/recipes/model/recipe.dart';
 import 'package:recipes_app/recipes/view_models/home_view_model.dart';
 import '../../../utils/constants/custom_colors.dart';
@@ -9,12 +10,11 @@ class DishCardWidget extends StatelessWidget {
   final Recipe recipe;
   final RecipesViewModel viewModel;
 
-  const DishCardWidget({
-    super.key,
-    required this.isVertical,
-    required this.recipe,
-    required this.viewModel
-  });
+  const DishCardWidget(
+      {super.key,
+      required this.isVertical,
+      required this.recipe,
+      required this.viewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +23,21 @@ class DishCardWidget extends StatelessWidget {
 
     return Card(
       color: CustomColors.cardColor,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius:
+                const BorderRadius.vertical(top: Radius.circular(15.0)),
+            child: Stack(
               children: [
                 Image.network(
                   recipe.imageUrl,
-                  width: isVertical ? double.maxFinite : width / 1.8,
-                  height: isVertical ? height / 3.2 : height / 5.3,
+                  width: isVertical ? double.maxFinite : width / 1.6,
+                  height: isVertical ? height / 3.2 : height / 4.7,
                   fit: BoxFit.cover,
                 ),
                 Positioned(
@@ -53,64 +57,74 @@ class DishCardWidget extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 8.0),
-            Text(
-              recipe.dishName,
-              style: CustomTextStyle.dishCardTitle,
-            ),
-            const SizedBox(height: 4.0),
-            SizedBox(
-              width: isVertical ? double.maxFinite : width / 1.8,
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.access_time_rounded,
-                        size: 15,
-                        color: CustomColors.textColorSecondary,
-                      ),
-                      SizedBox(width: 4),
-                      Text(
-                        '20 minutes',
-                        style: CustomTextStyle.timeTextStyle,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.circle,
-                        size: 15,
-                        color: Colors.green,
-                      ),
-                      SizedBox(width: 4),
-                      Text(
-                        'Vegetarian',
-                        style: CustomTextStyle.vegetarianTextStyle,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 4.0),
-            SizedBox(
-              height: 15,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => const Icon(
-                  Icons.star,
-                  size: 15,
-                  color: CustomColors.shadowColor,
+          ),
+          Padding(
+            padding: isVertical
+                ? const EdgeInsets.all(16.0)
+                : const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 8.0),
+                Text(
+                  recipe.dishName,
+                  style: CustomTextStyle.dishCardTitle,
                 ),
-                shrinkWrap: true,
-                itemCount: 5,
-              ),
+                const SizedBox(height: 4.0),
+                SizedBox(
+                  width: isVertical ? double.maxFinite : width / 1.8,
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.access_time_rounded,
+                            size: 15,
+                            color: CustomColors.textColorSecondary,
+                          ),
+                          SizedBox(width: 4),
+                          Text(
+                            '20 minutes',
+                            style: CustomTextStyle.timeTextStyle,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.circle,
+                            size: 15,
+                            color: Colors.green,
+                          ),
+                          SizedBox(width: 4),
+                          Text(
+                            'Vegetarian',
+                            style: CustomTextStyle.vegetarianTextStyle,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 4.0),
+                SizedBox(
+                  height: 15,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => const Icon(
+                      Icons.star,
+                      size: 15,
+                      color: CustomColors.shadowColor,
+                    ),
+                    shrinkWrap: true,
+                    itemCount: 5,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
