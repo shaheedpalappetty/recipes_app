@@ -21,7 +21,7 @@ class CustomColors {
   // Custom Colors for specific components
   static const Color appBarColor = Color(0xFF6200EE);
   static const Color favoriteIconColor = Colors.red;
-  static const Color disabledFavoriteIconColor = Colors.white;
+  static const Color disabledFavoriteIconColor = Color(0xFFB0B0B0);
 
   // Other colors
   static const Color dividerColor = Color(0xFFBDBDBD);
