@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes_app/utils/constants/custom_colors.dart';
 import 'package:recipes_app/utils/constants/text_style.dart';
+import 'package:recipes_app/utils/widgets/dish_card_widget.dart';
 import 'package:recipes_app/views/favourites_view.dart';
 
 class RecipesScreen extends StatelessWidget {
@@ -28,7 +29,7 @@ class RecipesScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FavouriteDishes(),
+                    builder: (context) => const FavouriteDishes(),
                   ),
                 );
               },
@@ -53,7 +54,7 @@ class RecipesScreen extends StatelessWidget {
                       BlendMode.darken,
                     ),
                     image: const NetworkImage(
-                        'https://via.placeholder.com/300'),
+                        "https://nosh-assignment.s3.ap-south-1.amazonaws.com/paneer-tikka.jpg"),
                     fit: BoxFit.cover,
                   ),
                   borderRadius: const BorderRadius.all(Radius.circular(15)),
@@ -104,10 +105,7 @@ class RecipesScreen extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: 5,
                   itemBuilder: (context, index) {
-                    return const Placeholder(
-                      fallbackHeight: 100,
-                      fallbackWidth: 100,
-                    );
+                    return const DishCardWidget(isVertical: false);
                   },
                 ),
               ),
@@ -123,10 +121,7 @@ class RecipesScreen extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: 5,
                   itemBuilder: (context, index) {
-                    return const Placeholder(
-                      fallbackHeight: 100,
-                      fallbackWidth: double.infinity,
-                    );
+                    return const DishCardWidget(isVertical: true);
                   },
                 ),
               ),
